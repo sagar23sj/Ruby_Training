@@ -1,0 +1,25 @@
+Regex For Mobile :
+
+reg_mob=/(^[1-9][\d]{9}$)/
+mobile.match(reg_mob)
+
+
+Regex for Name(Firstname lastname):
+
+reg_name=/(^[\D]+\s{1}[\D]*$)/
+name.match(reg_name)
+
+
+Regex for IP address :
+
+reg_ip=/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+ip.match(reg_ip)
+
+
+Regex for Email ID :
+
+reg_email=/^[0-9A-Za-z]+@[a-zA-Z]+.[com]+$/
+email.match(reg_email)
+
+
+
