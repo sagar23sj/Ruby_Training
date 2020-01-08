@@ -40,6 +40,7 @@ class OrderingSystem
 		if(id>0)
 			@@menu[food_item]-=1
 			@@order_id+=1
+			@order_status=1
 			return 1
 		elsif (id==-1)
 			puts "Please Enter Correct Item"
@@ -62,16 +63,21 @@ class OrderingSystem
 	end
 
 	def display_order_status(acc_status)
-		if(acc_status==1)
-			
+		if(acc_status==1)	
 			puts "Order is Placed and Being Prepared"
 			print "Order ID : "+@@order_id.to_s()
-
 		elsif (acc_status==-1)
 			puts "Order Not Placed , Place Order First"
+		elsif (acc_status==11)
+			puts "Order Is Delivered"
 		else
 			puts "Order Not Placed, Food Item Not Available"
 		end
+	end
+
+	def order_stat
+		@order_status=11
+		return @order_status
 	end
 
 
@@ -88,7 +94,8 @@ puts "1. Show User Info"
 puts "2. Show Menu"
 puts "3. Check Availability of Food Item"
 puts "4. Order Food"
-puts "5. Exit"
+puts "5. Change Status of Order"
+puts "6. Exit"
 
 print "Enter Your Choice : "
 opt=gets().chomp
@@ -115,10 +122,16 @@ order_status=-1
 
 			order_status = sagar.accept_order(food_item)
 			sagar.display_order_status(order_status)
+		when '5'
+			puts "*****Change Order Status*****"
+			order_status = sagar.order_stat
+			sagar.display_order_status(order_status)
+			
+			
 			
 	end
 
-	break if opt=='5'
+	break if opt=='6'
 
 end
 
